@@ -1,0 +1,34 @@
+
+a ="""{
+  "AllData": {"ArchiveAndDearchieveConfiguration": {
+      "Archieve": true,
+      "DeArchieve": true
+    },
+    "FinderInfo": {
+      "Coding": "utf8",
+      "SourceDirectory": "/Users/victoriasviridchik/Desktop/lab2/SourceDir",
+      "TargetDirectory": "/Users/victoriasviridchik/Desktop/lab2/TargetDir/",
+      "LogPath": "/Users/victoriasviridchik/Desktop/zoo/templog.txt",
+      "NeedToLog": true
+    },
+    "CompressingOptions": {
+      "Compressing": false
+    },
+    "EncryptingAndDecriptingOptions": {
+      "RandomKey": true,
+      "Encrypt": false,
+      "DEncrypt": false
+    },
+
+    "DataOptions": {
+      "Server": "localhost\\SQLEXPRESS",
+      "Database": "master",
+      "Trusted_Connection": true
+    }
+  }
+}"""
+import re as r
+pattern = '""(\w*[^""{}])"": {([^}]*)} ?'
+res = r.match(pattern,a)
+for r in res:
+    print(r)
