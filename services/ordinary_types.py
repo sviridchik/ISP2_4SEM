@@ -1,6 +1,8 @@
 import types
 import json
+import yaml
 import inspect
+from services.fabric import fabrica
 
 def prepare_data(raw_data):
     simplicies = [list,tuple,set,bytes]
@@ -143,10 +145,19 @@ def p(c):
 
 def summ(a=9,b=1):
     return p(a+b)
+
+class Man():
+    def __init__(self, name, age = 19):
+        self.name = name
+        self.age = age
 # print(set([1,2]) == set([2,1]))
 dct = {'vikusha': [{'vbh': bytes([6, 9, 123]), 'y':('x', 5),'o': {8, 'z'}}]}
-res_ser = prepare_data(summ)
-print(res_ser)
-res_deser = de_prepare_data(res_ser)
-print(res_deser)
-print(res_deser(3))
+# res_ser = prepare_data(dct)
+# print(res_ser)
+# print(yaml.dump(res_ser))
+# res_deser = de_prepare_data(res_ser)
+# print(res_deser)
+# print(res_deser(3))
+# fedia = Man("fedia")
+# print(prepare_data(fedia))
+fabrica('json').dump(prepare_data(summ))
